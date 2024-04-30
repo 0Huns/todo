@@ -1,0 +1,9 @@
+.mainBoard{
+  display: flex;
+  margin: auto;
+  height: 100vh;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e5ec;
+}
