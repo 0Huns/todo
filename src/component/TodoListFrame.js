@@ -1,13 +1,18 @@
-import { React } from 'react';
+import { React, useCallback } from 'react';
 import todoListFrame from"./TodoListFrame.module.css";
 
 function TodoListFrame({todoList, setTodoList}) {
+  let onDelete = useCallback((id)=>{
+      setTodoList((prev)=>prev.filter((_,listId)=>listId !== id))  
+  },[]);
+
   return (
     <div className={todoListFrame.listFrame}>
-      {todoList.map((index,id)=>{
+      {todoList.map((content,id)=>{
         return(
           <div key={id} className={todoListFrame.listItem}>
-            {index}
+            {content}
+            <button className={todoListFrame.delBtn} onClick={()=> onDelete(id)}>❌</button>
           </div>
         )
     })}

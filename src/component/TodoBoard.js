@@ -12,7 +12,7 @@ function TodoBoard() {
       <h1>TODO-LIST</h1>
       <TodoInput todoList={todoList} setTodoList={setTodoList}/>
     </div>
-      <TodoListFrame todoList={todoList} setTodoList={setTodoList}/>
+    <TodoListFrame todoList={todoList} setTodoList={setTodoList}/>
     </>
   );
 }
