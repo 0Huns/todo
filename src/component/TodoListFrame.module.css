@@ -1,18 +1,25 @@
-.todoBoard{
+.listFrame{
   height: auto;
   width: 80%;
   max-width: 900px;
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 2rem;
+}
+
+.listItem{
+  height: auto;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   border: 1px solid #ffffff00;
   border-radius: 25px;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
               7px 7px 20px 0px rgba(0, 0, 0, .1),
               4px 4px 5px 0px rgba(0, 0, 0, .1);
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: center;
   background-color: transparent;
-    h1{
-      margin-bottom: 1rem;
-    }
+  word-break: normal;
 }

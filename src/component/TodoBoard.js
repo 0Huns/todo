@@ -1,27 +1,19 @@
 import { React, useState } from 'react';
 import todoBoard from"./TodoBoard.module.css";
+import TodoInput from './TodoInput';
+import TodoListFrame from './TodoListFrame';
 
 function TodoBoard() {
-  let [input, setInput] = useState('');
-
-  const onFormSubmit = (e)=>{
-    e.preventDefault();
-    if(input === ""){
-      alert("내용을 입력하세요.");
-    }else{
-      alert("good");
-      setInput('');
-    }
-  }
+  let [todoList,setTodoList] = useState(["공부","우유"]);
 
   return (
+    <>
     <div className={todoBoard.todoBoard}>
       <h1>TODO-LIST</h1>
-      <form className={todoBoard.form} onSubmit={onFormSubmit}>
-        <input className={todoBoard.todoInput} type='text' placeholder='오늘의 목표를 작성.' value={input} onChange={(e)=>setInput(e.target.value)}/>
-        <button className={todoBoard.todoSubmit} type='submit'>등록</button>
-      </form>
+      <TodoInput todoList={todoList} setTodoList={setTodoList}/>
     </div>
+      <TodoListFrame todoList={todoList} setTodoList={setTodoList}/>
+    </>
   );
 }
 

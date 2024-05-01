@@ -1,9 +1,11 @@
 .mainBoard{
   display: flex;
+  flex-direction: column;
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   width: auto;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #e0e5ec;
 }
