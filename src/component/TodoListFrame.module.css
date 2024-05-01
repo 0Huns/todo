@@ -26,9 +26,29 @@
   justify-content: space-between;
 }
 
+.checkBox {
+  appearance: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+              7px 7px 20px 0px rgba(0, 0, 0, .1),
+              4px 4px 5px 0px rgba(0, 0, 0, .1);
+}
+
+.checkBox:checked {
+  background-size: cover;
+  background-image: url("C:/Users/dudgn/Desktop/React-practice/todo/public/check.png");
+  box-shadow: 2px 2px 2px 0px rgba(255, 255, 255, .5), 
+  inset 7px 7px 20px 0px rgba(0, 0, 0, .1), 
+  inset 4px 4px 5px 0px rgba(0, 0, 0, .1);
+}
+
 .delBtn{
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.8rem;
+  width: 1.8rem;
   border: none;
   border-radius: 10px;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
