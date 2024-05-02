@@ -1,7 +1,10 @@
-import { React, useRef, useState } from 'react';
+import { React, useContext, useRef, useState } from 'react';
 import todoInput from"./TodoInput.module.css";
+import { ListSetContext } from '../context/ListSetContext';
 
-function TodoInput({todoList, setTodoList}) {
+function TodoInput() {
+  const {todoList, setTodoList} = useContext(ListSetContext);
+
   let [input, setInput] = useState('');
   const inputFocus = useRef();
 
