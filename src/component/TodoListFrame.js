@@ -14,7 +14,7 @@ function TodoListFrame() {
       {todoList.map((content,id)=>{
         return(
           <li key={id} className={todoListFrame.listItem}>
-            <input type='checkbox' className={todoListFrame.checkBox}/>
+            <input type='checkbox' name='usercheck' className={todoListFrame.checkBox}/>
             {content}
             <button className={todoListFrame.delBtn} onClick={()=> onDelete(id)}>❌</button>
           </li>

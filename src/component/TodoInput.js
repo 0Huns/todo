@@ -21,7 +21,14 @@ function TodoInput() {
 
   return (
       <form className={todoInput.form} onSubmit={onFormSubmit}>
-        <input className={todoInput.todoInput} type='text' placeholder='오늘의 목표를 작성.' ref={inputFocus} value={input} onChange={(e)=>setInput(e.target.value)}/>
+        <input 
+        className={todoInput.todoInput}
+        name='userinput'
+        type='text' 
+        placeholder='오늘의 목표를 작성.' 
+        ref={inputFocus} 
+        value={input}
+        onChange={(e)=>setInput(e.target.value)}/>
         <button className={todoInput.todoSubmit} type='submit'>등록</button>
       </form>
   );
