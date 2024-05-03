@@ -5,7 +5,14 @@ import TodoListFrame from './TodoListFrame';
 import { ListSetContext } from '../context/ListSetContext';
 
 function TodoBoard() {
-  let [todoList,setTodoList] = useState(["공부 하기","캠핑 가기"]);
+  let [todoList,setTodoList] = useState([{
+    "id": 0,
+    "text": "공부하기",
+  },
+  {
+    "id": 1,
+    "text": "영화보기",
+  },]);
 
   const value = useMemo(()=>({
     todoList, setTodoList

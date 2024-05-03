@@ -1,4 +1,4 @@
-import { React, useCallback, useContext } from 'react';
+import { React, useCallback, useContext, useState } from 'react';
 import todoListFrame from"./TodoListFrame.module.css";
 import { ListSetContext } from '../context/ListSetContext';
 
@@ -6,20 +6,20 @@ function TodoListFrame() {
   const {todoList, setTodoList} = useContext(ListSetContext);
 
   const onDelete = useCallback((id)=>{
-      setTodoList((prev)=>prev.filter((_,listId)=>listId !== id))  
+    setTodoList((prev)=>prev.filter((item)=>item.id !== id))  
   },[]);
 
   return (
     <div className={todoListFrame.listFrame}>
-      {todoList.map((content,id)=>{
+      {todoList.map((item)=>{
         return(
-          <li key={id} className={todoListFrame.listItem}>
-            <input type='checkbox' name='usercheck' className={todoListFrame.checkBox}/>
-            {content}
-            <button className={todoListFrame.delBtn} onClick={()=> onDelete(id)}>❌</button>
+          <li key={item.id} className={todoListFrame.listItem}>
+            <input type='checkbox' className={todoListFrame.checkBox}/>
+            {item.text}
+            <button className={todoListFrame.delBtn} onClick={()=> onDelete(item.id)}>❌</button>
           </li>
         )
-    })}
+      })}
     </div>
   );
 }

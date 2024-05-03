@@ -3,17 +3,22 @@ import todoInput from"./TodoInput.module.css";
 import { ListSetContext } from '../context/ListSetContext';
 
 function TodoInput() {
-  const {todoList, setTodoList} = useContext(ListSetContext);
+  const {setTodoList} = useContext(ListSetContext);
 
   let [input, setInput] = useState('');
   const inputFocus = useRef();
 
   const onFormSubmit = (e)=>{
     e.preventDefault();
-    if(input === ""){
+    if(input.trim() === ""){
       alert("내용을 입력하세요.");
-    }else{
-      setTodoList([input, ...todoList]);
+    } else {
+      const newItem = {
+        id: Date.now(),
+        text: input,
+        check: false
+      };
+      setTodoList((prev)=>[newItem, ...prev]);
       setInput('');
       inputFocus.current.focus();
     }
