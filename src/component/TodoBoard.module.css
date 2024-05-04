@@ -1,6 +1,7 @@
 .todoBoard{
   height: auto;
   width: 80%;
+  min-width: 481px;
   max-width: 900px;
   margin-top: 2rem;
   margin-bottom: 2rem;

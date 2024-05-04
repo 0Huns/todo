@@ -42,14 +42,14 @@ function TodoListUpdate({item}) {
           <div className={todoListUpdate.afterContent}>
             <input type='text' className={todoListUpdate.editInput} placeholder={item.text} value={editInput} ref={editRef} onChange={(e)=>setEditInput(e.target.value)}/>
           </div>
-          <button className={todoListUpdate.updateBtn} onClick={()=> onUpdate(item.id)}>✅</button>
-          <button className={todoListUpdate.cancelBtn} onClick={()=> onCancel(item.id)}>❎</button>
+          <button className={todoListUpdate.updateBtn} onClick={()=> onUpdate()}>✅</button>
+          <button className={todoListUpdate.cancelBtn} onClick={()=> onCancel()}>❎</button>
         </div> 
       : <div className={todoListUpdate.before}>
           <div className={todoListUpdate.beforeContent}>
             {item.text}
           </div>
-          <button className={todoListUpdate.modifyBtn} onClick={onEdit}>♻️</button>
+          <button className={todoListUpdate.modifyBtn} onClick={onEdit}>✏️</button>
         </div> 
     }
     </> 
