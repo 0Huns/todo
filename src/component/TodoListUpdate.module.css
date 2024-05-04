@@ -5,6 +5,7 @@
   align-items: center;
   padding: 10px;
   width: calc(100% - 3.6rem);
+  justify-content: center;
 }
 
 .beforeContent,
@@ -38,7 +39,7 @@
 }
 
 .modifyBtn {
-  margin-left: 10px; /* 수정 버튼과의 간격 설정 */
+  margin-left: 10px;
 }
 
 .updateBtn:active,
