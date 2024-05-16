@@ -13,7 +13,7 @@ function TodoInput() {
     if(input.trim() === ""){
       alert("내용을 입력하세요.");
     } else {
-      fetch('https://my-json-server.typicode.com/0Huns/todo_DB/todoList', {
+      fetch('https://my-json-server.typicode.com/0Huns/todo_DB/db', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
