@@ -8,7 +8,7 @@ function TodoBoard() {
   let [todoList,setTodoList] = useState([]);
 
   useEffect(() => {
-    fetch('https://my-json-server.typicode.com/0Huns/todo_DB/db')
+    fetch('https://my-json-server.typicode.com/0Huns/todo_DB/todoList')
       .then(res => {
         if (!res.ok) {
           throw new Error('서버 연결을 실패하였습니다.');
