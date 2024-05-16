@@ -1,4 +1,4 @@
-import { React, useCallback, useContext} from 'react';
+import { React, useCallback, useContext, useState} from 'react';
 import todoListFrame from"./TodoListFrame.module.css";
 import { ListSetContext } from '../context/ListSetContext';
 import TodoListUpdate from './TodoListUpdate';
@@ -6,16 +6,47 @@ import TodoListUpdate from './TodoListUpdate';
 function TodoListFrame() {
   const {todoList, setTodoList} = useContext(ListSetContext);
 
-  const onDelete = useCallback((id)=>{
-    setTodoList((prev)=>prev.filter((item)=>item.id !== id))  
-  },[]);
+  let [checked, setChecked] = useState(false);
+
+  const onCheck = (id)=>{
+    setChecked((prev)=>!prev);
+    
+    fetch(`http://localhost:6329/todoList/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        checked: checked
+      })
+    })
+    .then(res => res.json())
+    .then(updateItem => {
+      const items = todoList.map(list =>
+        list.id === updateItem.id ? updateItem : list
+      );
+      setTodoList(items);
+    })
+  };
+
+  const onDelete = (id)=>{
+    fetch(`http://localhost:6329/todoList/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(()=>{
+      setTodoList((prev)=>prev.filter((item)=>item.id !== id))
+    })
+  };
 
   return (
     <div className={todoListFrame.listFrame}>
       {todoList.map((item)=>{
         return(
           <li key={item.id} className={todoListFrame.listItem}>
-            <input type='checkbox' className={todoListFrame.checkBox}/>
+            <input type='checkbox' className={todoListFrame.checkBox} checked={item.checked} onChange={()=>onCheck(item.id)}/>
             <TodoListUpdate item={item}/>
             <button className={todoListFrame.delBtn} onClick={()=> onDelete(item.id)}>❌</button>
           </li>

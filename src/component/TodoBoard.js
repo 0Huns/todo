@@ -1,18 +1,17 @@
-import { React, useMemo, useState } from 'react';
+import { React, useEffect, useMemo, useState } from 'react';
 import todoBoard from"./TodoBoard.module.css";
 import TodoInput from './TodoInput';
 import TodoListFrame from './TodoListFrame';
 import { ListSetContext } from '../context/ListSetContext';
 
 function TodoBoard() {
-  let [todoList,setTodoList] = useState([{
-    "id": 0,
-    "text": "공부하기",
-  },
-  {
-    "id": 1,
-    "text": "영화보기",
-  },]);
+  let [todoList,setTodoList] = useState([]);
+
+  useEffect(()=>{
+    fetch('http://localhost:6329/todoList')
+      .then(res => {return res.json()})
+      .then(data => setTodoList(data))
+  },[])
 
   const value = useMemo(()=>({
     todoList, setTodoList

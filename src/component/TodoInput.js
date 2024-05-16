@@ -13,14 +13,33 @@ function TodoInput() {
     if(input.trim() === ""){
       alert("내용을 입력하세요.");
     } else {
-      const newItem = {
-        id: Date.now(),
-        text: input,
-        check: false
-      };
-      setTodoList((prev)=>[newItem, ...prev]);
-      setInput('');
-      inputFocus.current.focus();
+      fetch('http://localhost:6329/todoList', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: Date.now().toString(),
+          text: input,
+          checked: false
+        })
+      })
+      .then(res => res.json())
+      .then(newItem => {
+        setTodoList((prev)=>[...prev, newItem]);
+        setInput('');
+        inputFocus.current.focus();
+      })
+
+
+      // const newItem = {
+      //   id: Date.now(),
+      //   text: input,
+      //   check: false
+      // };
+      // setTodoList((prev)=>[newItem, ...prev]);
+      // setInput('');
+      // inputFocus.current.focus();
     }
   }
 

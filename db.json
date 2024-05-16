@@ -1,0 +1,14 @@
+{
+  "todoList": [
+    {
+      "id": "0",
+      "text": "공부하기",
+      "checked": false
+    },
+    {
+      "id": "1",
+      "text": "영화보기",
+      "checked": false
+    }
+  ]
+}
