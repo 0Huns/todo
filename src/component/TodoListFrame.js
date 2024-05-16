@@ -11,7 +11,7 @@ function TodoListFrame() {
   const onCheck = (id)=>{
     setChecked((prev)=>!prev);
     
-    fetch(`https://my-json-server.typicode.com/0Huns/todo_DB/todoList/${id}`, {
+    fetch(`https://electric-good-hippodraco.glitch.me/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ function TodoListFrame() {
   };
 
   const onDelete = (id)=>{
-    fetch(`https://my-json-server.typicode.com/0Huns/todo_DB/todoList/${id}`, {
+    fetch(`https://electric-good-hippodraco.glitch.me/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

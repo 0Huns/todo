@@ -20,7 +20,7 @@ function TodoListUpdate({item}) {
   }, []);
 
   const onUpdate = useCallback((id) => {
-    fetch(`https://my-json-server.typicode.com/0Huns/todo_DB/todoList/${id}`, {
+    fetch(`https://electric-good-hippodraco.glitch.me/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
