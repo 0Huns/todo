@@ -19,20 +19,31 @@ function TodoListUpdate({item}) {
     setIsUpdate(true);
   }, []);
 
-  const onUpdate = useCallback(() => {
-    setTodoList(prev => prev.map(prevItem => {
-      if (prevItem.id === item.id) {
-        return { ...prevItem, text: editInput }; 
-      }
-      return prevItem;
-    }));
-    setIsUpdate(false);
+  const onUpdate = useCallback((id) => {
+    fetch(`http://localhost:6329/todoList/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        text: editInput
+      })
+    })
+    .then(res => res.json())
+    .then(()=>{
+      setTodoList(prev => prev.map(prevItem => {
+        if (prevItem.id === item.id) {
+          return { ...prevItem, text: editInput }; 
+        }
+        return prevItem;
+      }));
+      setIsUpdate(false);
+    })
   }, [editInput, item.id, setTodoList]);
 
   const onCancel = useCallback(() => {
     setIsUpdate(false);
-    setEditInput(item.text);
-  }, [item.text]);
+  }, []);
 
   return (
     <>
@@ -42,7 +53,7 @@ function TodoListUpdate({item}) {
           <div className={todoListUpdate.afterContent}>
             <input type='text' className={todoListUpdate.editInput} placeholder={item.text} value={editInput} ref={editRef} onChange={(e)=>setEditInput(e.target.value)}/>
           </div>
-          <button className={todoListUpdate.updateBtn} onClick={()=> onUpdate()}>✅</button>
+          <button className={todoListUpdate.updateBtn} onClick={()=> onUpdate(item.id)}>✅</button>
           <button className={todoListUpdate.cancelBtn} onClick={()=> onCancel()}>❎</button>
         </div> 
       : <div className={todoListUpdate.before}>
