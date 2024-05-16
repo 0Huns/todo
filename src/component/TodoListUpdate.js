@@ -20,7 +20,7 @@ function TodoListUpdate({item}) {
   }, []);
 
   const onUpdate = useCallback((id) => {
-    fetch(`https://electric-good-hippodraco.glitch.me/${id}`, {
+    fetch(`https://electric-good-hippodraco.glitch.me/todoList/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'

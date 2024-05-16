@@ -13,7 +13,7 @@ function TodoInput() {
     if(input.trim() === ""){
       alert("내용을 입력하세요.");
     } else {
-      fetch('https://electric-good-hippodraco.glitch.me', {
+      fetch('https://electric-good-hippodraco.glitch.me/todoList', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

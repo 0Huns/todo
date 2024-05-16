@@ -11,7 +11,7 @@ function TodoListFrame() {
   const onCheck = (id)=>{
     setChecked((prev)=>!prev);
     
-    fetch(`https://electric-good-hippodraco.glitch.me/${id}`, {
+    fetch(`https://electric-good-hippodraco.glitch.me/todoList/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ function TodoListFrame() {
   };
 
   const onDelete = (id)=>{
-    fetch(`https://electric-good-hippodraco.glitch.me/${id}`, {
+    fetch(`https://electric-good-hippodraco.glitch.me/todoList/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

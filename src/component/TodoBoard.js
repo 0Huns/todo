@@ -8,7 +8,7 @@ function TodoBoard() {
   let [todoList,setTodoList] = useState([]);
 
   useEffect(() => {
-    fetch('https://electric-good-hippodraco.glitch.me')
+    fetch('https://electric-good-hippodraco.glitch.me/todoList')
       .then(res => {
         if (!res.ok) {
           throw new Error('서버 연결을 실패하였습니다.');
