@@ -29,17 +29,27 @@ function TodoListUpdate({item}) {
         text: editInput
       })
     })
-    .then(res => res.json())
-    .then(()=>{
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('항목 수정을 실패하였습니다.');
+      }
+      return res.json();
+    })
+    .then(() => {
       setTodoList(prev => prev.map(prevItem => {
         if (prevItem.id === item.id) {
-          return { ...prevItem, text: editInput }; 
+          return { ...prevItem, text: editInput };
         }
         return prevItem;
       }));
       setIsUpdate(false);
     })
-  }, [editInput, item.id, setTodoList]);
+    .catch(error => {
+      alert('ERROR' + error.message);
+      setIsUpdate(false);
+      setEditInput(item.text);
+    });
+  }, [editInput, item, setTodoList]);
 
   const onCancel = useCallback(() => {
     setIsUpdate(false);

@@ -24,22 +24,20 @@ function TodoInput() {
           checked: false
         })
       })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('항목 추가에 실패했습니다.');
+        }
+        return res.json();
+      })
       .then(newItem => {
-        setTodoList((prev)=>[...prev, newItem]);
+        setTodoList((prev) => [...prev, newItem]);
         setInput('');
         inputFocus.current.focus();
       })
-
-
-      // const newItem = {
-      //   id: Date.now(),
-      //   text: input,
-      //   check: false
-      // };
-      // setTodoList((prev)=>[newItem, ...prev]);
-      // setInput('');
-      // inputFocus.current.focus();
+      .catch(error => {
+        alert('ERROR : ' + error.message);
+      });
     }
   }
 

@@ -1,4 +1,4 @@
-import { React, useCallback, useContext, useState} from 'react';
+import { React, useContext, useState} from 'react';
 import todoListFrame from"./TodoListFrame.module.css";
 import { ListSetContext } from '../context/ListSetContext';
 import TodoListUpdate from './TodoListUpdate';
@@ -20,13 +20,21 @@ function TodoListFrame() {
         checked: checked
       })
     })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('체크 표시가 반영되지 않았습니다.');
+      }
+      return res.json();
+    })
     .then(updateItem => {
       const items = todoList.map(list =>
         list.id === updateItem.id ? updateItem : list
       );
       setTodoList(items);
     })
+    .catch(error => {
+      alert('ERROR :' + error.message);
+    });
   };
 
   const onDelete = (id)=>{

@@ -7,11 +7,19 @@ import { ListSetContext } from '../context/ListSetContext';
 function TodoBoard() {
   let [todoList,setTodoList] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch('http://localhost:6329/todoList')
-      .then(res => {return res.json()})
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('서버 연결을 실패하였습니다.');
+        }
+        return res.json();
+      })
       .then(data => setTodoList(data))
-  },[])
+      .catch(error => {
+        alert(error.message);
+      });
+  }, []);
 
   const value = useMemo(()=>({
     todoList, setTodoList
