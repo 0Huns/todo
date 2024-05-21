@@ -2,6 +2,10 @@
 
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=black"/>
 
+<p align = "center">
+  <img src = "https://velog.velcdn.com/images/hoon_coding/post/0b338f2f-fa7c-4ea7-bc60-cbabb72a679d/image.png" width = "300px">
+<p>
+
 ### 🤖PAGE
 
 - Editor : Visual Studio Code
@@ -10,9 +14,6 @@
 - Link : https://0huns.github.io/todo
 
 ### 📑UI / UX
-<p align = "center">
-  <img src = "https://velog.velcdn.com/images/hoon_coding/post/0b338f2f-fa7c-4ea7-bc60-cbabb72a679d/image.png" width = "300px">
-<p>
 
 - css-module 방식으로 스타일을 작성
 - fontSize와 rem을 통해 미디어쿼리로 간단한 반응형 웹으로 구현
