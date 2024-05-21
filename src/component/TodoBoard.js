@@ -8,17 +8,20 @@ function TodoBoard() {
   let [todoList,setTodoList] = useState([]);
 
   useEffect(() => {
-    fetch('https://electric-good-hippodraco.glitch.me/todoList')
-      .then(res => {
-        if (!res.ok) {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://electric-good-hippodraco.glitch.me/todoList');
+        if (!response.ok) {
           throw new Error('서버 연결을 실패하였습니다.');
         }
-        return res.json();
-      })
-      .then(data => setTodoList(data))
-      .catch(error => {
+        const data = await response.json();
+        setTodoList(data);
+      } catch (error) {
         alert(error.message);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   const value = useMemo(()=>({
