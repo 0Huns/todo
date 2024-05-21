@@ -10,11 +10,13 @@
 - Link : https://0huns.github.io/todo
 
 ### 📑UI / UX
+<p align = "center">
+  <img src = "https://velog.velcdn.com/images/hoon_coding/post/0b338f2f-fa7c-4ea7-bc60-cbabb72a679d/image.png" width = "300px">
+<p align = "center">
 
-<img src = "https://velog.velcdn.com/images/hoon_coding/post/0b338f2f-fa7c-4ea7-bc60-cbabb72a679d/image.png" width = "300px">
-
-css-module 방식으로 스타일을 작성하였으며, fontSize와 rem을 통해 미디어쿼리로 간단한 반응형 웹으로 구현했다.<br>
-전체적인 스타일 컨셉은 boxShadow를 활용하여 버튼 컨셉으로 구성하였다.
+- css-module 방식으로 스타일을 작성
+- fontSize와 rem을 통해 미디어쿼리로 간단한 반응형 웹으로 구현
+- 전체적인 스타일 컨셉은 boxShadow를 활용하여 버튼 컨셉으로 구성
 
 ### 🛠️주요 기능
 
